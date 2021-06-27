@@ -1,0 +1,17 @@
+x=int(input("Enter the number of elements:"))
+k=int(input("Enter the element to be searched:"))
+arr=[]
+for i in range(x):
+    y=int(input("Enter the element:"))
+    arr.append(y)
+flag=False
+for i in range(x):
+    if k==arr[i]:
+        flag=True
+        break
+    else:
+        flag=False
+if(flag==True):
+    print("Element found!")
+else:
+    print("Element not found!")
