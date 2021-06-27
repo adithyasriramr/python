@@ -1,0 +1,18 @@
+def binary(arr,l,r,k):
+    mid=(r+l)//2
+    if k==arr[mid]:
+        print("Element found at index ",mid)
+    elif k>arr[mid]:
+        binary(arr,mid+1,r,k)
+    elif k<arr[mid]:
+        binary(arr,l,mid-1,k)
+x=int(input("Enter the number of elements:"))
+k=int(input("Enter the element to be searched:"))
+arr=[]
+for i in range(x):
+    y=int(input("Enter the element:"))
+    arr.append(y)
+print(arr)
+l=0
+r=x-1
+print(binary(arr,l,r,k))
