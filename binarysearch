@@ -16,3 +16,5 @@ print(arr)
 l=0
 r=x-1
 print(binary(arr,l,r,k))
+
+//Time Complexity - O(log N)
