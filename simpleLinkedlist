@@ -1,0 +1,54 @@
+class Node:#class for first node
+    def __init__(self, data):#constructor to initialize the data and the pointer, every constructor will have a parameter called self
+       self.data = data#data of the first node
+       self.next = None#next value in 1st first node none for now because it doesnt point to anything as of now
+ 
+class LinkedList:#class to link the different nodes
+    def __init__(self):#constructor for linkedlist class
+        self.head = None#initially there are no elements so head is null
+        self.last_node = None#here last_node refers to the second node when we have only one node in the linked list
+            
+    def appendbeg(self,data):
+        new_node=Node(data)
+        new_node.next = self.head
+        self.head = new_node
+        
+    def appendend(self,data):
+        temp=self.head
+        while temp.next:
+            temp=temp.next
+        temp = Node(data)
+        
+    def appendmid(self,data,index):
+        mid=Node(data)
+        temp=self.head
+        for i in range(index-1):
+            temp=temp.next
+        mid.data=data
+        mid.next=temp.next
+        temp.next=mid
+ 
+    def display(self):
+        current = self.head
+        while current!=None:
+            print(current.data, end = ' ')
+            current = current.next
+ 
+list1 = LinkedList()
+n = int(input('How many elements would you like to add:'))
+for i in range(n):
+    print("Enter 1 to add the element to the beginning")
+    print("Enter 2 to add the element to the middle")
+    print("Enter 3 to add the element to the end")
+    ch=int(input("Enter your choice:"))
+    if ch==1:
+        data = int(input('Enter data item: '))
+        list1.appendbeg(data)
+    elif ch==2:
+        data = int(input('Enter data item: '))
+        index = int(input("Enter the index where you want to add the element:"))                
+        list1.appendmid(data,index)
+    elif ch==3:
+        data = int(input('Enter data item: '))
+        list1.appendend(data)
+list1.display()
