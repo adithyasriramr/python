@@ -1,0 +1,16 @@
+nums=[]
+n=int(input("Enter the number of elements:"))
+for i in range(n):
+  y=int(input("Enter the element:"))
+  nums.append(y)
+sum=int(input("Enter the sum:"))
+add=0
+for i in range(n):
+  add+=nums[i]
+  for j in range(1,n):
+    add+=nums[j]
+    if add==sum:
+      print("[",i,",",j,"]")
+    else:
+      add-=nums[j]
+  add-=nums[i]
