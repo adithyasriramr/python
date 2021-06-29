@@ -1,3 +1,8 @@
+#Input: nums = [2,7,11,15], target = 9
+#Output: [0,1]
+#Output: Because nums[0] + nums[1] == 9, we return [0, 1].
+
+
 nums=[]
 n=int(input("Enter the number of elements:"))
 for i in range(n):
@@ -14,3 +19,4 @@ for i in range(n):
     else:
       add-=nums[j]
   add-=nums[i]
+
