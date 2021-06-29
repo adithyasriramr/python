@@ -6,7 +6,6 @@ class Node:#class for first node
 class LinkedList:#class to link the different nodes
     def __init__(self):#constructor for linkedlist class
         self.head = None#initially there are no elements so head is null
-        self.last_node = None#here last_node refers to the second node when we have only one node in the linked list
             
     def appendbeg(self,data):
         new_node=Node(data)
@@ -14,10 +13,11 @@ class LinkedList:#class to link the different nodes
         self.head = new_node
         
     def appendend(self,data):
+        last_node=Node(data)
         temp=self.head
         while temp.next:
             temp=temp.next
-        temp = Node(data)
+        temp.next=last_node
         
     def appendmid(self,data,index):
         mid=Node(data)
@@ -29,10 +29,13 @@ class LinkedList:#class to link the different nodes
         temp.next=mid
  
     def display(self):
+      if self.head is None:
+        print("List is empty!")
+      else:
         current = self.head
         while current!=None:
-            print(current.data, end = ' ')
-            current = current.next
+          print(current.data, end = ' ')
+          current = current.next
  
 list1 = LinkedList()
 n = int(input('How many elements would you like to add:'))
