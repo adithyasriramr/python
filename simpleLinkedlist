@@ -27,6 +27,26 @@ class LinkedList:#class to link the different nodes
         mid.data=data
         mid.next=temp.next
         temp.next=mid
+
+    def delbeg(self):
+        temp=self.head
+        self.head=temp.next
+
+    def delend(self):
+        prev=self.head
+        temp=self.head.next
+        while temp.next:
+          temp=temp.next
+          prev=prev.next
+        prev.next=None
+
+    def delmid(self,index):
+        prev=self.head
+        temp=self.head.next
+        for i in range(index-1):
+          temp=temp.next
+          prev=prev.next
+        prev.next=temp.next
  
     def display(self):
       if self.head is None:
@@ -38,11 +58,14 @@ class LinkedList:#class to link the different nodes
           current = current.next
  
 list1 = LinkedList()
-n = int(input('How many elements would you like to add:'))
+n = int(input('How many operations would you like to perform?'))
 for i in range(n):
     print("Enter 1 to add the element to the beginning")
     print("Enter 2 to add the element to the middle")
     print("Enter 3 to add the element to the end")
+    print("Enter 4 to delete the first node")
+    print("Enter 5 to delete the last node")
+    print("Enter 6 to delete a particular node")
     ch=int(input("Enter your choice:"))
     if ch==1:
         data = int(input('Enter data item: '))
@@ -54,4 +77,11 @@ for i in range(n):
     elif ch==3:
         data = int(input('Enter data item: '))
         list1.appendend(data)
+    elif ch==4:
+        list1.delbeg()
+    elif ch==5:
+        list1.delend()
+    elif ch==6:
+        index = int(input('Enter index of the item to be deleted: '))
+        list1.delmid(index)
 list1.display()
