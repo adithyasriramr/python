@@ -1,0 +1,35 @@
+#Input: x = 123
+#Output: 321
+#Input: x = -123
+#Output: -321
+
+num = int(input('Enter the number:'))
+def reverse(num):
+    if num < 0:
+        num = num * (-1)
+        n = num
+        count = 0
+        sum = 0
+        while num != 0:
+            count += 1
+            num = num // 10
+        while n != 0:
+            r = n % 10
+            sum += r * 10 ** (count - 1)
+            n = n // 10
+            count -= 1
+        print(sum * (-1))
+    else:
+        n = num
+        count = 0
+        sum = 0
+        while num != 0:
+            count += 1
+            num = num // 10
+        while n != 0:
+            r = n % 10
+            sum += r * 10 ** (count - 1)
+            n = n // 10
+            count -= 1
+        print(sum)
+reverse(num)
