@@ -1,0 +1,68 @@
+class Node:#class for first node
+    def __init__(self, data):#constructor to initialize the data and the pointer, every constructor will have a parameter called self
+       self.data = data#data of the first node
+       self.next = None#next value in 1st first node none for now because it doesnt point to anything as of now
+ 
+class LinkedList:#class to link the different nodes
+    def __init__(self):#constructor for linkedlist class
+        self.head = None#initially there are no elements so head is null
+
+    def push(self,data):
+        if self.head is None:
+          self.head=Node(data)
+        else:
+          last_node=Node(data)
+          temp=self.head
+          while temp.next:
+            temp=temp.next
+          temp.next=last_node
+
+    def pop(self):
+      if self.head is None:
+        print("Underflow")
+      else:       
+        prev=self.head
+        temp=self.head.next
+        while temp.next:
+          temp=temp.next
+          prev=prev.next
+        prev.next=None
+
+    def peek(self):
+      if self.head is None:
+        print("Stack is empty!")
+      else:
+        current = self.head
+        while current.next!=None:
+          current = current.next
+        print(current.data)
+
+    def display(self):
+      if self.head is None:
+        print("Stack is empty!")
+      else:
+        current = self.head
+        while current!=None:
+          print(current.data, end = ' ')
+          current = current.next
+ 
+stack = LinkedList()
+n = int(input('How many operations would you like to perform?'))
+for i in range(n):
+    print("Enter 1 to add an element to the stack")
+    print("Enter 2 to delete an element from the stack")
+    print("Enter 3 to display the elements in the stack")
+    print("Enter 4 to view the topmost element in the stack")
+    print("Enter 5 to exit")
+    ch=int(input("Enter your choice:"))
+    if ch==1:
+        data = int(input('Enter data item: '))
+        stack.push(data)
+    elif ch==2:
+        stack.pop()
+    elif ch==3:
+        stack.display()
+    elif ch==4:
+        stack.peek()
+    elif ch==5:
+        exit()
