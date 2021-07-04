@@ -24,7 +24,6 @@ class LinkedList:#class to link the different nodes
         temp=self.head
         for i in range(index-1):
             temp=temp.next
-        mid.data=data
         mid.next=temp.next
         temp.next=mid
 
