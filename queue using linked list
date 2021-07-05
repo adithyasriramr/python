@@ -1,0 +1,67 @@
+class Node:#class for first node
+    def __init__(self, data):#constructor to initialize the data and the pointer, every constructor will have a parameter called self
+       self.data = data#data of the first node
+       self.next = None#next value in 1st first node none for now because it doesnt point to anything as of now
+ 
+class LinkedList:#class to link the different nodes
+    def __init__(self):#constructor for linkedlist class
+        self.head = None#initially there are no elements so head is null
+
+    def enqueue(self,data):
+        if self.head is None:
+          self.head=Node(data)
+        else:
+          last_node=Node(data)
+          temp=self.head
+          while temp.next:
+            temp=temp.next
+          temp.next=last_node
+
+    def dequeue(self):
+      if self.head is None:
+        print("Underflow")
+      else:
+        temp=self.head
+        self.head=temp.next
+
+    def size(self):
+      count=1
+      if self.head is None:
+        print("Stack is empty!")
+      else:
+        current = self.head
+        while current.next!=None:
+          count=count+1
+          current = current.next
+        print(count)
+
+    def display(self):
+      if self.head is None:
+        print("Stack is empty!")
+      else:
+        current = self.head
+        while current!=None:
+          print(current.data, end = ' ')
+          current = current.next
+        print("\n")
+ 
+queue = LinkedList()
+n = int(input('How many operations would you like to perform?'))
+for i in range(n):
+    print("Enter 1 to add an element to the queue")
+    print("Enter 2 to delete an element from the queue")
+    print("Enter 3 to display the elements in the queue")
+    print("Enter 4 to display the size of the queue")
+    print("Enter 5 to exit")
+    ch=int(input("Enter your choice:"))
+    if ch==1:
+        data = int(input('Enter data item: '))
+        queue.enqueue(data)
+    elif ch==2:
+        queue.dequeue()
+    elif ch==3:
+        queue.display()
+    elif ch==4:
+        queue.size()
+    elif ch==5:
+        exit()
