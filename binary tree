@@ -40,16 +40,16 @@ class Node:
       res = []
       if root:
          res.append(root.data)
-         res = res + self.PreorderTraversal(root.left)
-         res = res + self.PreorderTraversal(root.right)
+         res = res + self.preorderTraversal(root.left)
+         res = res + self.preorderTraversal(root.right)
       return res
 # Postorder traversal
 # Left ->Right -> Root
    def postorderTraversal(self, root):
       res = []
       if root:
-         res = self.PostorderTraversal(root.left)
-         res = res + self.PostorderTraversal(root.right)
+         res = self.postorderTraversal(root.left)
+         res = res + self.postorderTraversal(root.right)
          res.append(root.data)
       return res  
 r=int(input("Enter the root:"))
@@ -58,6 +58,7 @@ n=int(input("Enter the number of elements to be inserted into the tree:"))
 for i in range(n):
   data=int(input("Enter the element:"))
   root.insert(data)
+root.PrintTree()
 print("Enter 1 for inorder traversal")
 print("Enter 2 for preorder traversal")
 print("Enter 3 for postorder traversal")
