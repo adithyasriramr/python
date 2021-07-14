@@ -1,0 +1,72 @@
+class Node:
+   def __init__(self, data):
+      self.left = None
+      self.right = None
+      self.data = data
+# Insert Node
+   def insert(self, data):
+      if self.data:
+         if data<self.data:
+            if self.left is None:
+               self.left = Node(data)
+            else:
+               self.left.insert(data)
+         elif data>self.data:
+            if self.right is None:
+               self.right = Node(data)
+            else:
+               self.right.insert(data)
+      else:
+         self.data = data
+# Print the Tree
+   def PrintTree(self):
+      if self.left:
+         self.left.PrintTree()
+      print( self.data),
+      if self.right:
+         self.right.PrintTree()
+# Inorder traversal
+# Left -> Root -> Right
+   def inorderTraversal(self, root):
+      res = []
+      if root:
+         res = self.inorderTraversal(root.left)
+         res.append(root.data)
+         res = res + self.inorderTraversal(root.right)
+      return res
+# Preorder traversal
+# Root -> Left ->Right
+   def preorderTraversal(self, root):
+      res = []
+      if root:
+         res.append(root.data)
+         res = res + self.PreorderTraversal(root.left)
+         res = res + self.PreorderTraversal(root.right)
+      return res
+# Postorder traversal
+# Left ->Right -> Root
+   def postorderTraversal(self, root):
+      res = []
+      if root:
+         res = self.PostorderTraversal(root.left)
+         res = res + self.PostorderTraversal(root.right)
+         res.append(root.data)
+      return res  
+r=int(input("Enter the root:"))
+root=Node(r)
+n=int(input("Enter the number of elements to be inserted into the tree:"))
+for i in range(n):
+  data=int(input("Enter the element:"))
+  root.insert(data)
+print("Enter 1 for inorder traversal")
+print("Enter 2 for preorder traversal")
+print("Enter 3 for postorder traversal")
+ch=int(input("Enter your choice:"))
+if ch==1:
+  print(root.inorderTraversal(root))
+elif ch==2:
+  print(root.preorderTraversal(root))
+elif ch==3:
+  print(root.postorderTraversal(root))
+else:
+  print("Wrong choice!")
