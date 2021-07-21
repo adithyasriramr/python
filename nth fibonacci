@@ -1,0 +1,12 @@
+n=int(input())
+arr=[0,1]
+sum=0
+if n==0:
+    print(arr[0])
+elif n==1:
+    print(arr[i])
+else:
+    for i in range(n):
+        sum=arr[i]+arr[i+1]
+        arr.append(sum)
+    print(arr[n])
